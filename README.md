@@ -1,6 +1,6 @@
 # SwiatRamble
 
-[SwiatRamble](https://github.com/berwincr/SwiatRamble) is an interactive cultural discovery app for exploring countries, traditions, food, history, festivals, and landmarks. Explore the world map, read cultural stories, take quizzes, and collect passport stamps as you learn.
+[SwiatRamble](https://berwincr.github.io/SwiatRamble) is an interactive cultural discovery app for exploring countries, traditions, food, history, festivals, and landmarks. Explore the world map, read cultural stories, take quizzes, and collect passport stamps as you learn.
 
 ## Features
 
