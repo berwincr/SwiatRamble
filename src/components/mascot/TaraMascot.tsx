@@ -1,5 +1,7 @@
 import React from 'react';
 
+const taraImageUrl = `${import.meta.env.BASE_URL}assets/tara/tara_avatar.png`;
+
 export type TaraPose = 
   | 'welcoming' 
   | 'waving' 
@@ -62,15 +64,15 @@ export const TaraMascot: React.FC<TaraMascotProps> = ({
       avatarSize: 'w-36 h-36 sm:w-44 sm:h-44'
     },
     xl: { 
-      containerClass: 'w-52 h-52 sm:w-60 sm:h-60', 
-      imgClass: 'w-52 h-52 sm:w-60 sm:h-60 object-cover object-top', 
+      containerClass: 'w-52 sm:w-60', 
+      imgClass: 'w-full h-auto object-contain', 
       svgWidth: 200, 
       svgHeight: 240,
-      avatarSize: 'w-52 h-52 sm:w-60 sm:h-60'
+      avatarSize: 'w-52 sm:w-60 h-auto'
     },
     hero: { 
-      containerClass: 'w-64 sm:w-80 md:w-96 h-auto aspect-[848/792]', 
-      imgClass: 'w-full h-full object-cover rounded-[32px]', 
+      containerClass: 'w-64 sm:w-80 md:w-96', 
+      imgClass: 'w-full h-auto object-contain', 
       svgWidth: 320, 
       svgHeight: 380,
       avatarSize: 'w-72 sm:w-80 md:w-96 h-auto'
@@ -100,36 +102,21 @@ export const TaraMascot: React.FC<TaraMascotProps> = ({
         <div 
           className={`relative group ${animate ? 'animate-soft-float' : ''}`}
         >
-          {/* Subtle Ambient Clay Glow */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#A9DEF9]/30 via-[#C8B6FF]/20 to-[#FFE69A]/30 rounded-[32px] blur-xl transform group-hover:scale-105 transition-all duration-300 -z-10" />
-
           {size === 'hero' || size === 'xl' ? (
-            /* Full High-Impact 3D Presentation */
-            <div className={`relative rounded-[32px] overflow-hidden border-4 border-white shadow-2xl bg-gradient-to-b from-[#20293A] via-[#2A344A] to-[#1E2433] ${currentSize.containerClass}`}>
+            <div className={`relative ${currentSize.containerClass}`}>
               <img
-                src="/assets/tara/tara_hero.jpg"
+                src={taraImageUrl}
                 alt="Tara - Official SwiatRamble Storyteller"
-                className={`${currentSize.imgClass} transition-transform duration-500 group-hover:scale-105`}
+                className={`${currentSize.imgClass} drop-shadow-xl transition-transform duration-500 group-hover:scale-[1.02]`}
               />
-              {/* Badge overlay */}
-              <div className="absolute bottom-3 left-3 right-3 py-1.5 px-3 rounded-full bg-white/90 backdrop-blur-md border border-white flex items-center justify-between text-xs font-bold text-[#303044] shadow-md">
-                <span className="flex items-center gap-1 text-[#8B6CE8]">
-                  <span>✨</span> Tara
-                </span>
-                <span className="text-[10px] text-[#6B6882] font-semibold">Storyteller & Guide</span>
-              </div>
             </div>
           ) : (
-            /* Rounded Avatar 3D Presentation */
-            <div className={`relative rounded-3xl overflow-hidden border-3 border-white shadow-xl bg-gradient-to-b from-[#20293A] to-[#1E2433] p-0.5 ${currentSize.avatarSize}`}>
+            <div className={`relative ${currentSize.avatarSize}`}>
               <img
-                src="/assets/tara/tara_hero.jpg"
+                src={taraImageUrl}
                 alt="Tara Avatar"
-                className="w-full h-full object-cover object-[60%_25%] rounded-[20px] transition-transform duration-300 group-hover:scale-110"
+                className="w-full h-full object-contain drop-shadow-lg transition-transform duration-300 group-hover:scale-105"
               />
-              <span className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#FFE69A] border-2 border-white flex items-center justify-center text-[10px] shadow-sm">
-                ⭐
-              </span>
             </div>
           )}
         </div>
